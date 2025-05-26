@@ -1,6 +1,6 @@
+//base class for products//
 export default class Product {
   public static taxRate = 0.05;
- 
   sku: string;
   name: string;
   price: number;
@@ -11,11 +11,16 @@ export default class Product {
     this.price = price;
   }
  
-  getPriceWithTax(): number {
-    return this.price * (Product.taxRate + 1);
-  }
 
   protected displayDetails(): string {
-    return `${this.name} (SKU: ${this.sku}) costs $${this.price}.`;
+    //forgot to use template literals at first//
+    //return "SKU: " + this.sku + ", Name: " + this.name + ", Price: $" + this.price.//
+    return `SKU: ${this.sku}, Name: ${this.name}, Price: $${this.price}`;
+  }
+
+  //needed to look up how to make abstract methods, so using regular method//
+  getPriceWithTax(): number {
+    return this.price; //will overide in subclasses//
+    // return this.price * (Product.taxRate + 1);
   }
 }
