@@ -20,5 +20,21 @@ for (let i = 0; i < products.length; i++) {
   const product = products[i];  
   console.log(product.displayDetails());
 
-  
+  //calculate the price with tax//
+  const finalPrice = calculateTax(product);
+  console.log("Final Price: $" + finalPrice.toFixed(2));  
+  console.log("---");
+}
+
+//count products//
+let physicalCount = 0;
+let digitalCount = 0;
+
+for (const product of products) {
+  //instanceof from stackoverflow//
+  if (product instanceof PhysicalProduct) {
+    physicalCount = physicalCount + 1;
+  } else {
+    digitalCount = digitalCount + 1;
+  }
 }
