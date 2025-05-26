@@ -13,6 +13,10 @@ export default class PhysicalProduct extends Product {
     return this.weight + "kg";
   }
 
+  //  get formattedWeight(): string {
+//         return `${this.weight} kg`;
+//     }
+
   getPriceWithTax(): number {  
     //googled how to calculate tax//
     let tax = this.price * 0.1;
@@ -22,13 +26,9 @@ export default class PhysicalProduct extends Product {
 
 
   displayDetails(): string {
-    return super.displayDetails() + ` It weighs ${this.weight} kg.`;
+    //tried different ways to combine strings//
+    let details = super.displayDetails();
+    details = details + "", Weight: " + this.getWeight();
+    return details;
   }
-
 }
-
- get formattedWeight(): string {
-        return `${this.weight} kg`;
-    }
-
-  }
