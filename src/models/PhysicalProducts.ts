@@ -1,4 +1,4 @@
-import  Product from './Product'; //not sure why the curly braces that should go around Product get an error//
+import Product from './Product'; //not sure why the curly braces that should go around Product get an error//
 
 export default class PhysicalProduct extends Product {
   weight: number;
@@ -10,15 +10,11 @@ export default class PhysicalProduct extends Product {
 
   //forgot to add kg//
   getWeight(): string {
-    return this.weight + "kg";
+    return this.weight + " kg";  // This gives "2.5 kg"//
   }
 
-  //  get formattedWeight(): string {
-//         return `${this.weight} kg`;
-//     }
-
   getPriceWithTax(): number {  
-    //googled how to calculate tax//
+    // how to calculate tax//
     let tax = this.price * 0.1;
     let total = this.price + tax;
     return total;
@@ -28,7 +24,7 @@ export default class PhysicalProduct extends Product {
   displayDetails(): string {
     //tried different ways to combine strings//
     let details = super.displayDetails();
-    details = details + "", Weight: " + this.getWeight();
+    details = details + ", Weight: " + this.getWeight();
     return details;
   }
 }
